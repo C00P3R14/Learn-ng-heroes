@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { Hero } from '../hero'
 import { FormsModule } from '@angular/forms' // <-- NgModel lives here
 import { HEROES } from '../mock-heroes';
@@ -19,7 +19,7 @@ import { HeroService } from '../hero.service';
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css',
 })
-export class HeroesComponent {
+export class HeroesComponent implements OnInit {
 
   constructor(
     private heroService:HeroService
@@ -35,6 +35,10 @@ export class HeroesComponent {
   hero: Hero = {
     id: 1,
     name: 'Windstorm',
+  }
+
+  ngOnInit(): void {
+    this.getHeroes()
   }
 
   heroes:Hero[] = [];
