@@ -5,6 +5,7 @@ import { HEROES } from '../mock-heroes';
 import { NgFor, NgIf,UpperCasePipe } from '@angular/common';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -22,7 +23,8 @@ import { HeroService } from '../hero.service';
 export class HeroesComponent implements OnInit {
 
   constructor(
-    private heroService:HeroService
+    private heroService:HeroService,
+    private messageService:MessageService
   ) {
     //this.heroes = heroService.getHeroes() //my idea
   }
@@ -46,7 +48,9 @@ export class HeroesComponent implements OnInit {
   heroes:Hero[] = [];
 
   selectedHero?:Hero;
+
   onSelect(hero:Hero) {
     this.selectedHero = hero;
+    this.messageService.add(`HeroComponent: Selected hero id=${hero.id}`)
   }
 }
