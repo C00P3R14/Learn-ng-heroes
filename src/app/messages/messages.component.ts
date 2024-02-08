@@ -8,13 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './messages.component.css'
 })
 export class MessagesComponent {
-  messages: string[] = [];
-
-  add(message: string) {
-    this.messages.push(message);
-  }
-
-  clear() {
-    this.messages = [];
-  }
+ 
 }
