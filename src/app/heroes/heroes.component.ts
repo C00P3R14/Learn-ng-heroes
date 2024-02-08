@@ -22,5 +22,10 @@ export class HeroesComponent {
     name: 'Windstorm',
   }
 
-  heroes:Hero[] = HEROES
+  heroes:Hero[] = HEROES;
+
+  selectedHero?:Hero;
+  onSelect(hero:Hero) {
+    this.selectedHero = hero;
+  }
 }
